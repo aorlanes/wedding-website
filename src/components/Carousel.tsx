@@ -129,7 +129,8 @@ const NextPrevButtons = ({
           height: 64,
           maxWidth: 24,
           minWidth: 24,
-          backgroundColor: prevDisabled ? '#00a6b840' : '#00a6b8',
+          background: theme.palette.primary.main,
+          opacity: prevDisabled ? 0.2 : 1,
           borderRadius: 5,
           padding: 0,
           right: 24,
@@ -137,14 +138,15 @@ const NextPrevButtons = ({
         onClick={onPrev}
         disabled={prevDisabled}
       >
-        <ArrowBackIosNewIcon style={{ color: theme.palette.white.main }} />
+        <ArrowBackIosNewIcon style={{ color: theme.palette.secondary.main }} />
       </Button>
       <Button
         style={{
           height: 64,
           maxWidth: 24,
           minWidth: 24,
-          backgroundColor: nextDisabled ? '#00a6b840' : '#00a6b8',
+          background: theme.palette.primary.main,
+          opacity: nextDisabled ? 0.2 : 1,
           borderRadius: 5,
           padding: 0,
           left: 24,
@@ -152,7 +154,7 @@ const NextPrevButtons = ({
         onClick={onNext}
         disabled={nextDisabled}
       >
-        <ArrowForwardIosIcon style={{ color: theme.palette.white.main }} />
+        <ArrowForwardIosIcon style={{ color: theme.palette.secondary.main }} />
       </Button>
     </div>
   );

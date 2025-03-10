@@ -1,21 +1,19 @@
 import { Typography, Button, useMediaQuery } from '@mui/material';
-import { useNavigate } from 'react-router-dom';
 import theme from '../theme';
-import bgImg from '../assets/img10.jpeg';
+import bgImg from '../assets/AE1.jpg';
 import Container from '../components/Container';
 import * as React from 'react';
 
 const HomeHeader = () => {
   const isMobile = useMediaQuery(theme.breakpoints.down('sm'));
-  const isTablet = useMediaQuery(theme.breakpoints.down('md'));
-  const navigate = useNavigate();
 
   return (
-    <div style={{ height: 602 }}>
+    <div style={{ height: 600 }}>
       <div
         style={{
           position: 'absolute',
           backgroundImage: `url(${bgImg})`,
+          backgroundPosition: 'center',
           backgroundSize: 'cover',
           display: 'flex',
           width: '100%',
@@ -27,9 +25,8 @@ const HomeHeader = () => {
           position: 'relative',
           zIndex: 2,
           height: '100%',
-          backgroundImage: `linear-gradient(to bottom, rgba(0, 0, 0, 0.5) 60%, ${
-            isMobile ? 'rgba(0, 0, 0, 0.5)' : 'transparent'
-          })`,
+          backgroundImage:
+            'linear-gradient(to bottom, rgba(0, 0, 0, 0.3) 60%, transparent',
         }}
       >
         <Container
@@ -37,54 +34,22 @@ const HomeHeader = () => {
             display: 'flex',
             flexDirection: 'column',
             textAlign: 'center',
+            paddingTop: '64px',
           }}
         >
           <Typography
-            variant={isTablet ? 'h4' : 'h3'}
-            color={theme.palette.white.main}
+            variant={isMobile ? 'h4' : 'h2'}
+            color={theme.palette.secondary.main}
           >
-            <span style={{ display: 'block' }}>Top-Rated Commercial </span>
-            Cleaning Service in Los Angeles
+            Anjela & Enrique
           </Typography>
           <Typography
-            variant={isTablet ? 'h6' : 'h5'}
-            color={theme.palette.white.main}
+            variant="subtitle2"
+            color={theme.palette.secondary.main}
             style={{ marginTop: 16 }}
           >
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+            Date to Be Announced
           </Typography>
-          <div
-            style={{
-              display: 'flex',
-              flexDirection: isMobile ? 'column' : 'row',
-              alignItems: isMobile ? 'center' : 'flex-start',
-              justifyContent: 'center',
-              width: '100%',
-              marginTop: 36,
-            }}
-          >
-            <Button
-              variant="contained"
-              size="large"
-              style={{
-                width: 256,
-                marginTop: 12,
-                marginRight: isMobile ? 0 : 12,
-              }}
-              onClick={() => navigate('/services')}
-            >
-              Services
-            </Button>
-            <Button
-              variant="contained"
-              color="secondary"
-              size="large"
-              style={{ width: 256, marginTop: 12 }}
-              onClick={() => navigate('/contact')}
-            >
-              Contact Us
-            </Button>
-          </div>
         </Container>
       </div>
     </div>

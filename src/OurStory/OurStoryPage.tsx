@@ -6,7 +6,7 @@ import Container from '../components/Container';
 import * as React from 'react';
 import InfoCardLarge from '../components/InfoCardLarge';
 
-const AboutPage = () => {
+const OurStoryPage = () => {
   const isTablet = useMediaQuery(theme.breakpoints.down('md'));
 
   return (
@@ -21,7 +21,7 @@ const AboutPage = () => {
         </Typography>
         <Typography
           variant={isTablet ? 'subtitle2' : 'subtitle1'}
-          color={theme.palette.darkGray.main}
+          color={theme.palette.text.primary}
           style={{ textAlign: 'center', paddingBottom: 24 }}
         >
           Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
@@ -47,4 +47,4 @@ const AboutPage = () => {
   );
 };
 
-export default AboutPage;
+export default OurStoryPage;

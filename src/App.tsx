@@ -2,7 +2,7 @@ import './App.css';
 import * as React from 'react';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import HomePage from './home/HomePage';
-import AboutPage from './About/AboutPage';
+import OurStoryPage from './OurStory/OurStoryPage';
 import ContactPage from './Contact/ContactPage';
 import ServicesPage from './Services/ServicesPage';
 import NavBar from './components/NavBar';
@@ -21,7 +21,7 @@ function App() {
           <Route path="/">
             <Route index element={<HomePage />} />
             <Route path="services" element={<ServicesPage />} />
-            <Route path="about" element={<AboutPage />} />
+            <Route path="our-story" element={<OurStoryPage />} />
             <Route path="contact" element={<ContactPage />} />
             <Route path="*" element={<HomePage />} />
           </Route>

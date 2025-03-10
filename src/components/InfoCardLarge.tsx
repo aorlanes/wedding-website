@@ -17,7 +17,7 @@ const InfoCardLarge = ({ alignment, title, text, itemList, image }: Props) => {
     <Paper
       elevation={3}
       style={{
-        backgroundColor: theme.palette.lightGray.main,
+        backgroundColor: theme.palette.text.primary,
         display: 'flex',
         flexDirection: isTablet
           ? 'column-reverse'

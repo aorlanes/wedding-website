@@ -10,145 +10,128 @@ import VsLogoFull from '../assets/logo-full-white.svg';
 import * as React from 'react';
 
 const Footer = () => {
-	const navigate = useNavigate();
+  const navigate = useNavigate();
 
-	const links = [
-		{
-			category: '',
-			linkItems: [
-				{
-					label: '',
-					href: '',
-				},
-			],
-		},
-		{
-			category: '',
-			linkItems: [
-				{
-					label: '',
-					href: '',
-				},
-			],
-		},
-		{
-			category: '',
-			linkItems: [
-				{
-					label: '',
-					href: '',
-				},
-			],
-		},
-	];
+  const links = [
+    {
+      category: '',
+      linkItems: [
+        {
+          label: '',
+          href: '',
+        },
+      ],
+    },
+    {
+      category: '',
+      linkItems: [
+        {
+          label: '',
+          href: '',
+        },
+      ],
+    },
+    {
+      category: '',
+      linkItems: [
+        {
+          label: '',
+          href: '',
+        },
+      ],
+    },
+  ];
 
-	return (
-		<div
-			style={{
-				width: '100%',
-				backgroundImage: `linear-gradient(to bottom, ${theme.palette.primary.main}, ${theme.palette.secondary.main}`,
-				color: 'white',
-				textAlign: 'center',
-			}}
-		>
-			<Container
-				style={{
-					display: 'flex',
-					width: '100%',
-					flexDirection: 'column',
-					alignItems: 'center',
-					paddingTop: 32,
-					paddingBottom: 32,
-				}}
-			>
-				<div
-					style={{
-						display: 'flex',
-						justifyContent: 'center',
-						width: '100%',
-					}}
-				>
-					<img
-						src={VsLogoFull}
-						alt="Vera &amp; Sons Commercial Cleaning Logo"
-						height={64}
-						style={{ padding: 8, cursor: 'pointer' }}
-						onClick={() => navigate('/')}
-					/>
-				</div>
-				<div
-					style={{
-						display: 'flex',
-						width: '100%',
-						justifyContent: 'center',
-						alignItems: 'center',
-					}}
-				>
-					<Link
-						underline="none"
-						color="white"
-						variant="button"
-						style={{
-							textDecoration: 'underline',
-							padding: 8,
-							cursor: 'pointer',
-						}}
-					>
-						Sitemap
-					</Link>
-					|
-					<Link
-						underline="none"
-						color="white"
-						variant="button"
-						style={{
-							textDecoration: 'underline',
-							padding: 8,
-							cursor: 'pointer',
-						}}
-					>
-						Terms of Use
-					</Link>
-				</div>
-				<div
-					style={{
-						display: 'flex',
-						width: 128,
-						justifyContent: 'space-between',
-					}}
-				>
-					<IconButton color="white">
-						<FacebookIcon fontSize="medium" />
-					</IconButton>
-					<IconButton
-						color="white"
-						href="https://www.instagram.com/veransoncc/"
-						target="_blank"
-					>
-						<InstagramIcon fontSize="medium" />
-					</IconButton>
-					<IconButton color="white">
-						<LinkedInIcon fontSize="medium" />
-					</IconButton>
-					<IconButton color="white">
-						<YouTubeIcon fontSize="medium" />
-					</IconButton>
-				</div>
-				<Typography variant="caption">
-					Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-					eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad
-					minim veniam, quis nostrud exercitation ullamco laboris nisi ut
-					aliquip ex ea commodo consequat.
-				</Typography>
-				<Typography
-					variant="caption"
-					style={{ paddingTop: 4 }}
-				>
-					© 2022 Vera &amp; Sons Commercial Cleaning
-				</Typography>
-			</Container>
-		</div>
-	);
+  return (
+    <div
+      style={{
+        width: '100%',
+        background: theme.palette.primary.main,
+        color: theme.palette.text.primary,
+        textAlign: 'center',
+      }}
+    >
+      <Container
+        style={{
+          display: 'flex',
+          width: '100%',
+          flexDirection: 'column',
+          alignItems: 'center',
+          paddingTop: 32,
+          paddingBottom: 32,
+        }}
+      >
+        <div
+          style={{
+            display: 'flex',
+            justifyContent: 'center',
+            width: '100%',
+          }}
+        >
+          <Typography
+            variant="h3"
+            style={{
+              color: theme.palette.primary.light,
+              cursor: 'pointer',
+              marginTop: '20px',
+            }}
+            onClick={() => navigate('/')}
+          >
+            A&E
+          </Typography>
+        </div>
+        <div
+          style={{
+            display: 'flex',
+            width: 128,
+            justifyContent: 'space-between',
+            color: theme.palette.secondary.main,
+            alignItems: 'center',
+          }}
+        >
+          <Typography variant="caption">A:</Typography>
+          <IconButton
+            color="secondary"
+            href="https://www.instagram.com/damnnnnjela/"
+            target="_blank"
+          >
+            <InstagramIcon fontSize="medium" />
+          </IconButton>
+          <IconButton
+            color="secondary"
+            href="https://www.linkedin.com/in/anjela-orlanes/"
+            target="_blank"
+          >
+            <LinkedInIcon fontSize="medium" />
+          </IconButton>
+          |
+          <Typography variant="caption" style={{ paddingLeft: 8 }}>
+            E:
+          </Typography>
+          <IconButton
+            color="secondary"
+            href="https://www.instagram.com/enrique_vera_/"
+            target="_blank"
+          >
+            <InstagramIcon fontSize="medium" />
+          </IconButton>
+          <IconButton
+            color="secondary"
+            href="https://www.linkedin.com/in/enrique-vera/"
+            target="_blank"
+          >
+            <LinkedInIcon fontSize="medium" />
+          </IconButton>
+        </div>
+        <Typography
+          variant="caption"
+          style={{ paddingTop: 4, color: theme.palette.primary.light }}
+        >
+          Created by Anjela Orlanes (Software Engineer and Bride-to-Be)
+        </Typography>
+      </Container>
+    </div>
+  );
 };
 
 export default Footer;
