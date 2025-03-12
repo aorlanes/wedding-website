@@ -2,45 +2,12 @@ import { useNavigate } from 'react-router-dom';
 import Container from './Container';
 import theme from '../theme';
 import InstagramIcon from '@mui/icons-material/Instagram';
-import FacebookIcon from '@mui/icons-material/Facebook';
 import LinkedInIcon from '@mui/icons-material/LinkedIn';
-import YouTubeIcon from '@mui/icons-material/YouTube';
-import { IconButton, Link, Typography } from '@mui/material';
-import VsLogoFull from '../assets/logo-full-white.svg';
+import { IconButton, Typography } from '@mui/material';
 import * as React from 'react';
 
 const Footer = () => {
   const navigate = useNavigate();
-
-  const links = [
-    {
-      category: '',
-      linkItems: [
-        {
-          label: '',
-          href: '',
-        },
-      ],
-    },
-    {
-      category: '',
-      linkItems: [
-        {
-          label: '',
-          href: '',
-        },
-      ],
-    },
-    {
-      category: '',
-      linkItems: [
-        {
-          label: '',
-          href: '',
-        },
-      ],
-    },
-  ];
 
   return (
     <div

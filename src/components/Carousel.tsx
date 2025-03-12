@@ -1,23 +1,27 @@
 import * as React from 'react';
-import { Button, useMediaQuery } from '@mui/material';
+import { Button, MobileStepper, useMediaQuery } from '@mui/material';
 import ArrowForwardIosIcon from '@mui/icons-material/ArrowForwardIos';
 import ArrowBackIosNewIcon from '@mui/icons-material/ArrowBackIosNew';
 import theme from '../theme';
+import { KeyboardArrowLeft, KeyboardArrowRight } from '@mui/icons-material';
 
 type CarouselProps = {
   items: JSX.Element[];
   displayCount: number;
   slideByCount?: number;
   style?: React.CSSProperties;
+  variant?: CarouselVariant;
 };
 
 type CarouselDirection = 'LEFT' | 'RIGHT';
+type CarouselVariant = 'dots' | 'arrows';
 
 const Carousel = ({
   items,
   displayCount,
   slideByCount = 1,
   style,
+  variant = 'arrows',
 }: CarouselProps) => {
   const isDesktop = useMediaQuery(theme.breakpoints.down('lg'));
   const itemRefs = React.useMemo(
@@ -74,20 +78,17 @@ const Carousel = ({
   return (
     <div
       style={{
-        display: 'flex',
+        display: variant === 'arrows' ? 'flex' : 'block',
         position: 'relative',
         width: '100%',
         alignItems: 'center',
-        maxWidth: isDesktop ? `${itemWidth * displayCount}px` : '100%',
+        maxWidth:
+          isDesktop || variant === 'dots'
+            ? `${itemWidth * displayCount}px`
+            : '100%',
         ...style,
       }}
     >
-      <NextPrevButtons
-        onNext={() => onChange('LEFT')}
-        onPrev={() => onChange('RIGHT')}
-        nextDisabled={nextPrevDisabled.next}
-        prevDisabled={nextPrevDisabled.prev}
-      />
       <div style={{ overflow: 'hidden', display: 'flex' }} ref={carouselRef}>
         {items.map((item, index) => {
           return (
@@ -97,6 +98,49 @@ const Carousel = ({
           );
         })}
       </div>
+      {variant === 'arrows' ? (
+        <NextPrevButtons
+          onNext={() => onChange('LEFT')}
+          onPrev={() => onChange('RIGHT')}
+          nextDisabled={nextPrevDisabled.next}
+          prevDisabled={nextPrevDisabled.prev}
+        />
+      ) : (
+        <MobileStepper
+          variant="dots"
+          steps={itemsCount}
+          position="static"
+          activeStep={currentItem}
+          nextButton={
+            <Button
+              size="small"
+              onClick={() => onChange('LEFT')}
+              disabled={nextPrevDisabled.next}
+              style={{ minWidth: 'auto' }}
+            >
+              {theme.direction === 'rtl' ? (
+                <KeyboardArrowLeft />
+              ) : (
+                <KeyboardArrowRight />
+              )}
+            </Button>
+          }
+          backButton={
+            <Button
+              size="small"
+              onClick={() => onChange('RIGHT')}
+              disabled={nextPrevDisabled.prev}
+              style={{ minWidth: 'auto' }}
+            >
+              {theme.direction === 'rtl' ? (
+                <KeyboardArrowRight />
+              ) : (
+                <KeyboardArrowLeft />
+              )}
+            </Button>
+          }
+        />
+      )}
     </div>
   );
 };
