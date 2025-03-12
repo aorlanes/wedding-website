@@ -37,7 +37,6 @@ const HomeEvents = () => {
         flexDirection: 'column',
         textAlign: 'center',
         alignItems: 'center',
-        background: theme.palette.background.default,
       }}
     >
       <Typography variant={isTablet ? 'h4' : 'h3'} color="primary">

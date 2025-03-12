@@ -50,7 +50,6 @@ const Footer = () => {
         <div
           style={{
             display: 'flex',
-            width: 128,
             justifyContent: 'space-between',
             color: theme.palette.secondary.main,
             alignItems: 'center',

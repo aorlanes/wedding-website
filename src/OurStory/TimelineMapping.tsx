@@ -32,7 +32,7 @@ export const timelineMapping = [
   {
     label: '2022',
     description: 'The year we bought a house',
-    photos: [ae42022, ae22022, ae32022, ae52022, ae12022],
+    photos: [ae42022, ae32022, ae22022, ae52022, ae12022],
   },
   {
     label: '2023',
@@ -41,8 +41,8 @@ export const timelineMapping = [
   },
   {
     label: '2024',
-    description: 'The year we travelled',
-    photos: [ae12024, ae22024, ae32024, ae42024, ae52024, ae62024, ae72024],
+    description: 'The year we traveled',
+    photos: [ae22024, ae62024, ae72024, ae32024, ae52024, ae12024, ae42024],
   },
   {
     label: '2025',
