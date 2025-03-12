@@ -103,8 +103,8 @@ const FaqPage = () => {
             })} */}
         </CustomTabPanel>
         <Typography>
-          Don't see your question? Check the others FAQ tabs or reach out to us
-          personally!
+          Don't see your question? Scroll through the other FAQ tabs or reach
+          out to us personally!
         </Typography>
       </Box>
     </Container>

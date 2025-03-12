@@ -18,10 +18,14 @@ const OurStoryPage = () => {
     photos.map((photo, index) => {
       return (
         <Card key={`${photo}-${index}`}>
-          <CardMedia
-            style={{ width: 256, height: 256, display: 'flex' }}
-            image={photo}
-          />
+          <CardMedia style={{ width: 256, height: 256, display: 'flex' }}>
+            <img
+              loading="lazy"
+              src={photo}
+              alt={photo}
+              style={{ objectFit: 'cover', width: 256, height: 256 }}
+            />
+          </CardMedia>
         </Card>
       );
     });

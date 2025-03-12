@@ -20,7 +20,7 @@ const HomeWeddingPartyCarousel = () => {
   const [modalOpen, setModalOpen] = React.useState(false);
   const [modalInfo, setModalInfo] = React.useState<SlideCardInfo>();
 
-  const reviews = [
+  const members = [
     {
       name: 'John D.',
       title: 'Best Man',
@@ -64,8 +64,8 @@ const HomeWeddingPartyCarousel = () => {
     setModalOpen(true);
   };
 
-  const slideCards = reviews.map((review, index) => {
-    return <SlideCard key={index} info={review} onClick={handleOpen} />;
+  const slideCards = members.map((member, index) => {
+    return <SlideCard key={index} info={member} onClick={handleOpen} />;
   });
 
   return (
@@ -81,46 +81,11 @@ const HomeWeddingPartyCarousel = () => {
       }}
     >
       {modalOpen && (
-        <Dialog open={modalOpen} onClose={() => setModalOpen(false)}>
-          <div
-            style={{
-              display: 'flex',
-              flexDirection: 'column',
-              alignItems: 'center',
-              width: 'auto',
-              maxHeight: 600,
-              padding: isTablet ? 32 : 48,
-              position: 'relative',
-              textAlign: 'center',
-              background: theme.palette.secondary.light,
-            }}
-          >
-            <CloseIcon
-              style={{
-                position: 'absolute',
-                zIndex: 5,
-                right: 16,
-                top: 16,
-                cursor: 'pointer',
-              }}
-              onClick={() => setModalOpen(false)}
-            />
-            <Avatar
-              style={{
-                width: 256,
-                height: 256,
-                background: theme.palette.primary.light,
-                color: theme.palette.secondary.light,
-              }}
-              src={modalInfo.image}
-            />
-            <Typography variant="subtitle1">{modalInfo.name}</Typography>
-            <Typography variant="h5" style={{ fontStyle: 'italic' }}>
-              {modalInfo.title}
-            </Typography>
-            <Typography variant="body2">{modalInfo.text}</Typography>
-          </div>
-        </Dialog>
+        <SlideCardModal
+          modalInfo={modalInfo}
+          modalOpen={modalOpen}
+          setModalOpen={setModalOpen}
+        />
       )}
       <Typography
         variant={isTablet ? 'h4' : 'h3'}
@@ -202,6 +167,58 @@ const SlideCard = ({ info, onClick }: SlideCardProps) => {
         </CardContent>
       </CardActionArea>
     </Card>
+  );
+};
+
+type ModalProps = {
+  modalInfo: SlideCardInfo;
+  modalOpen: boolean;
+  setModalOpen: (_: boolean) => void;
+};
+
+const SlideCardModal = ({ modalInfo, modalOpen, setModalOpen }: ModalProps) => {
+  const isTablet = useMediaQuery(theme.breakpoints.down('md'));
+  return (
+    <Dialog open={modalOpen} onClose={() => setModalOpen(false)}>
+      <div
+        style={{
+          display: 'flex',
+          flexDirection: 'column',
+          alignItems: 'center',
+          width: 'auto',
+          maxHeight: 600,
+          padding: isTablet ? 32 : 48,
+          position: 'relative',
+          textAlign: 'center',
+          background: theme.palette.secondary.light,
+        }}
+      >
+        <CloseIcon
+          style={{
+            position: 'absolute',
+            zIndex: 5,
+            right: 16,
+            top: 16,
+            cursor: 'pointer',
+          }}
+          onClick={() => setModalOpen(false)}
+        />
+        <Avatar
+          style={{
+            width: 256,
+            height: 256,
+            background: theme.palette.primary.light,
+            color: theme.palette.secondary.light,
+          }}
+          src={modalInfo.image}
+        />
+        <Typography variant="subtitle1">{modalInfo.name}</Typography>
+        <Typography variant="h5" style={{ fontStyle: 'italic' }}>
+          {modalInfo.title}
+        </Typography>
+        <Typography variant="body2">{modalInfo.text}</Typography>
+      </div>
+    </Dialog>
   );
 };
 

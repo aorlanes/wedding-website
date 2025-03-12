@@ -1,6 +1,6 @@
-import { Typography, Button, useMediaQuery } from '@mui/material';
+import { Typography, useMediaQuery } from '@mui/material';
 import theme from '../theme';
-import bgImg from '../assets/AE1.jpg';
+import { ae17 } from '../assets';
 import Container from '../components/Container';
 import * as React from 'react';
 
@@ -12,7 +12,7 @@ const HomeHeader = () => {
       <div
         style={{
           position: 'absolute',
-          backgroundImage: `url(${bgImg})`,
+          backgroundImage: `url(${ae17})`,
           backgroundPosition: 'center',
           backgroundSize: 'cover',
           display: 'flex',

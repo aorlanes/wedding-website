@@ -89,7 +89,10 @@ const Carousel = ({
         ...style,
       }}
     >
-      <div style={{ overflow: 'hidden', display: 'flex' }} ref={carouselRef}>
+      <div
+        style={{ overflow: 'hidden', display: 'flex', zIndex: 1 }}
+        ref={carouselRef}
+      >
         {items.map((item, index) => {
           return (
             <div key={index} ref={itemRefs[index]}>
@@ -170,10 +173,9 @@ const NextPrevButtons = ({
     >
       <Button
         style={{
-          height: 64,
+          height: 'auto',
           maxWidth: 24,
           minWidth: 24,
-          background: theme.palette.primary.main,
           opacity: prevDisabled ? 0.2 : 1,
           borderRadius: 5,
           padding: 0,
@@ -182,14 +184,13 @@ const NextPrevButtons = ({
         onClick={onPrev}
         disabled={prevDisabled}
       >
-        <ArrowBackIosNewIcon style={{ color: theme.palette.secondary.main }} />
+        <ArrowBackIosNewIcon style={{ color: theme.palette.primary.main }} />
       </Button>
       <Button
         style={{
-          height: 64,
+          height: 'auto',
           maxWidth: 24,
           minWidth: 24,
-          background: theme.palette.primary.main,
           opacity: nextDisabled ? 0.2 : 1,
           borderRadius: 5,
           padding: 0,
@@ -198,7 +199,7 @@ const NextPrevButtons = ({
         onClick={onNext}
         disabled={nextDisabled}
       >
-        <ArrowForwardIosIcon style={{ color: theme.palette.secondary.main }} />
+        <ArrowForwardIosIcon style={{ color: theme.palette.primary.main }} />
       </Button>
     </div>
   );
