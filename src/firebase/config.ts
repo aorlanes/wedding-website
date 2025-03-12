@@ -1,18 +1,16 @@
-import * as firebase from "firebase/app";
-import { getStorage } from "firebase/storage";
-import { getFirestore } from "firebase/firestore";
+import { initializeApp } from 'firebase/app';
+import { getAnalytics } from 'firebase/analytics';
 
 const firebaseConfig = {
-  apiKey: "AIzaSyBXseDalh2K9yUPqiov6yVTUYyGo6iNYB4",
-  authDomain: "veraandsons-a0856.firebaseapp.com",
-  projectId: "veraandsons-a0856",
-  storageBucket: "veraandsons-a0856.appspot.com",
-  messagingSenderId: "1064424806531",
-  appId: "1:1064424806531:web:4fb24e61ed4097c097e3b6"
+  apiKey: 'AIzaSyC0xNunR7Z2b6r9K5kpVmCEYat-Px5zbBQ',
+  authDomain: 'anjela-and-enrique.firebaseapp.com',
+  projectId: 'anjela-and-enrique',
+  storageBucket: 'anjela-and-enrique.firebasestorage.app',
+  messagingSenderId: '340254871820',
+  appId: '1:340254871820:web:a422c40cc363744421b929',
+  measurementId: 'G-R65ETP88Q5',
 };
 
-const app = firebase.initializeApp(firebaseConfig);
-const storage = getStorage(app);
-const firestore = getFirestore(app);
-
-export { storage, firestore };
+// Initialize Firebase
+const app = initializeApp(firebaseConfig);
+const analytics = getAnalytics(app);
