@@ -21,7 +21,7 @@
       work correctly both with client-side routing and a non-root public URL.
       Learn how to configure a non-root public URL by running `npm run build`.
     -->
-    <title>Anjela Orlanes & Enrique Vera</title>
+    <title>The Veras</title>
     <!-- update the version number as needed -->
     <script defer src="/__/firebase/11.4.0/firebase-app-compat.js"></script>
     <!-- include only the Firebase features as you need -->
@@ -55,9 +55,13 @@
       defer
       src="/__/firebase/11.4.0/firebase-performance-compat.js"
     ></script>
+    <!-- 
+      initialize the SDK after all desired features are loaded, set useEmulator to false
+      to avoid connecting the SDK to running emulators.
+    -->
+    <script defer src="/__/firebase/init.js?useEmulator=true"></script>
   </head>
   <body>
-    <noscript>You need to enable JavaScript to run this app.</noscript>
     <script>
       document.addEventListener('DOMContentLoaded', function () {
         const loadEl = document.querySelector('#load');
@@ -100,15 +104,5 @@
       });
     </script>
     <div id="root"></div>
-    <!--
-      This HTML file is a template.
-      If you open it directly in the browser, you will see an empty page.
-
-      You can add webfonts, meta tags, or analytics to this file.
-      The build step will place the bundled scripts into the <body> tag.
-
-      To begin the development, run `npm start` or `yarn start`.
-      To create a production bundle, use `npm run build` or `yarn build`.
-    -->
   </body>
 </html>
