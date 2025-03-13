@@ -99,6 +99,8 @@ import ae73 from './proposal/IMG_3203.jpeg';
 import ae74 from './proposal/IMG_3204.jpeg';
 import ae75 from './proposal/IMG_3205.jpeg';
 
+import amazon from './amazon.jpeg';
+
 export {
   ae12021,
   ae22021,
@@ -199,4 +201,5 @@ export {
   ae59,
   ae69,
   ae11,
+  amazon,
 };

@@ -11,6 +11,7 @@ import { ScrollToTop } from './components/ScrollToTop';
 import FaqPage from './FAQ/FaqPage';
 import GalleryPage from './Gallery/GalleryPage';
 import RegistryPage from './Registry/RegistryPage';
+import { PrivacyPolicyPage } from './PrivacyPolicy/PrivacyPolicyPage';
 
 function App() {
   return (
@@ -26,6 +27,7 @@ function App() {
             <Route path="faq" element={<FaqPage />} />
             <Route path="registry" element={<RegistryPage />} />
             <Route path="rsvp" element={<OurStoryPage />} />
+            <Route path="privacy" element={<PrivacyPolicyPage />} />
             <Route path="*" element={<HomePage />} />
           </Route>
         </Routes>

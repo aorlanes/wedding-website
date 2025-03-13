@@ -3,7 +3,7 @@ import Container from './Container';
 import theme from '../theme';
 import InstagramIcon from '@mui/icons-material/Instagram';
 import LinkedInIcon from '@mui/icons-material/LinkedIn';
-import { IconButton, Typography } from '@mui/material';
+import { IconButton, Link, Typography } from '@mui/material';
 import * as React from 'react';
 
 const Footer = () => {
@@ -94,6 +94,11 @@ const Footer = () => {
           style={{ paddingTop: 4, color: theme.palette.primary.light }}
         >
           Created by Anjela Orlanes (Software Engineer and Bride-to-Be)
+        </Typography>
+        <Typography variant="caption" style={{ paddingTop: 16 }}>
+          <Link href="/privacy" color={theme.palette.secondary.dark}>
+            Your Privacy
+          </Link>
         </Typography>
       </Container>
     </div>
