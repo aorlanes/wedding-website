@@ -9,6 +9,7 @@ import {
   useMediaQuery,
   CardMedia,
   Card,
+  Skeleton,
 } from '@mui/material';
 import { photos } from './PhotoMapping';
 import theme from '../theme';
@@ -19,6 +20,11 @@ const GalleryPage = () => {
   const isMobile = useMediaQuery(theme.breakpoints.down('sm'));
   const [modalOpen, setModalOpen] = React.useState(false);
   const [modalImg, setModalImg] = React.useState<string>();
+  const [isLoading, setIsLoading] = React.useState(true);
+
+  React.useEffect(() => {
+    setIsLoading(false);
+  }, []);
 
   const handleOpen = (img: string) => {
     setModalImg(img);
@@ -46,7 +52,7 @@ const GalleryPage = () => {
           gap={8}
           variant="masonry"
         >
-          {photos.map((img) => (
+          {photos.map((img, index) => (
             <ImageListItem
               key={img}
               sx={{
@@ -68,12 +74,15 @@ const GalleryPage = () => {
                   height: '100%',
                 }}
               />
-              <img
-                loading="lazy"
-                src={img}
-                alt={img}
-                style={{ borderRadius: 5 }}
-              />
+              {isLoading ? (
+                <Skeleton
+                  variant="rounded"
+                  width="100%"
+                  height={index % 2 === 0 ? 150 : 100}
+                />
+              ) : (
+                <img src={img} alt={img} style={{ borderRadius: 5 }} />
+              )}
             </ImageListItem>
           ))}
         </ImageList>
