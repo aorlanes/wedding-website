@@ -20,11 +20,6 @@ const GalleryPage = () => {
   const isMobile = useMediaQuery(theme.breakpoints.down('sm'));
   const [modalOpen, setModalOpen] = React.useState(false);
   const [modalImg, setModalImg] = React.useState<string>();
-  const [isLoading, setIsLoading] = React.useState(true);
-
-  React.useEffect(() => {
-    setIsLoading(false);
-  }, []);
 
   const handleOpen = (img: string) => {
     setModalImg(img);
@@ -53,37 +48,7 @@ const GalleryPage = () => {
           variant="masonry"
         >
           {photos.map((img, index) => (
-            <ImageListItem
-              key={img}
-              sx={{
-                borderRadius: 5,
-                cursor: 'pointer',
-              }}
-              onClick={() => handleOpen(img)}
-            >
-              <Box
-                sx={{
-                  position: 'absolute',
-                  '&:hover': {
-                    transition: 'background 0.2s ease-in',
-                    background: theme.palette.primary.dark,
-                    opacity: 0.1,
-                  },
-                  zIndex: 2,
-                  width: '100%',
-                  height: '100%',
-                }}
-              />
-              {isLoading ? (
-                <Skeleton
-                  variant="rounded"
-                  width="100%"
-                  height={index % 2 === 0 ? 150 : 100}
-                />
-              ) : (
-                <img src={img} alt={img} style={{ borderRadius: 5 }} />
-              )}
-            </ImageListItem>
+            <Image img={img} index={index} handleOpen={handleOpen} key={img} />
           ))}
         </ImageList>
       </Box>
@@ -102,6 +67,57 @@ const GalleryPage = () => {
         />
       )}
     </Container>
+  );
+};
+
+type ImageProps = {
+  img: string;
+  index: number;
+  handleOpen: (_: string) => void;
+};
+
+const Image = ({ img, index, handleOpen }: ImageProps) => {
+  const isMobile = useMediaQuery(theme.breakpoints.down('sm'));
+  const isXL = useMediaQuery(theme.breakpoints.up('lg'));
+  const [isLoading, setIsLoading] = React.useState(true);
+
+  React.useEffect(() => {
+    setIsLoading(false);
+  });
+
+  return (
+    <ImageListItem
+      sx={{
+        borderRadius: 5,
+        cursor: 'pointer',
+      }}
+      onClick={() => handleOpen(img)}
+    >
+      <Box
+        sx={{
+          position: 'absolute',
+          '&:hover': {
+            transition: 'background 0.2s ease-in',
+            background: theme.palette.primary.dark,
+            opacity: 0.1,
+          },
+          zIndex: 2,
+          width: '100%',
+          height: '100%',
+        }}
+      />
+      {isLoading ? (
+        <Skeleton
+          variant="rounded"
+          width={isMobile ? '100%' : isXL ? 272 : '20vw'}
+          height={
+            index % 2 === 0 ? (isMobile ? 150 : 275) : isMobile ? 100 : 150
+          }
+        />
+      ) : (
+        <img src={img} alt={img} style={{ borderRadius: 5 }} />
+      )}
+    </ImageListItem>
   );
 };
 
