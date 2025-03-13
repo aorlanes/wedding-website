@@ -39,8 +39,8 @@ const OurStoryPage = () => {
       >
         Our Story
       </Typography>
-      <Typography variant="subtitle2">
-        Our story starts in 2021!
+      <Typography variant="body1">
+        <strong>Our story starts in 2021!</strong>
         <br />
         Anjela moved to LA in 2020 and after the pandemic she decided to become
         a personal trainer at the local gym in hopes to meet people and make new

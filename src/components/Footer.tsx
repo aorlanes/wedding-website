@@ -91,14 +91,21 @@ const Footer = () => {
         </div>
         <Typography
           variant="caption"
+          style={{ paddingBottom: 16, color: theme.palette.secondary.dark }}
+        >
+          <Link href="/privacy" color={theme.palette.secondary.dark}>
+            Privacy Notice
+          </Link>{' '}
+          |{' '}
+          <Link href="/terms-of-service" color={theme.palette.secondary.dark}>
+            Terms of Service
+          </Link>
+        </Typography>
+        <Typography
+          variant="caption"
           style={{ paddingTop: 4, color: theme.palette.primary.light }}
         >
           Created by Anjela Orlanes (Software Engineer and Bride-to-Be)
-        </Typography>
-        <Typography variant="caption" style={{ paddingTop: 16 }}>
-          <Link href="/privacy" color={theme.palette.secondary.dark}>
-            Your Privacy
-          </Link>
         </Typography>
       </Container>
     </div>

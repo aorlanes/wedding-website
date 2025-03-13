@@ -11,7 +11,8 @@ import { ScrollToTop } from './components/ScrollToTop';
 import FaqPage from './FAQ/FaqPage';
 import GalleryPage from './Gallery/GalleryPage';
 import RegistryPage from './Registry/RegistryPage';
-import { PrivacyPolicyPage } from './PrivacyPolicy/PrivacyPolicyPage';
+import PrivacyPolicyPage from './PrivacyPolicy/PrivacyPolicyPage';
+import TermsPage from './Terms/TermsPage';
 
 function App() {
   return (
@@ -28,6 +29,7 @@ function App() {
             <Route path="registry" element={<RegistryPage />} />
             <Route path="rsvp" element={<OurStoryPage />} />
             <Route path="privacy" element={<PrivacyPolicyPage />} />
+            <Route path="terms-of-service" element={<TermsPage />} />
             <Route path="*" element={<HomePage />} />
           </Route>
         </Routes>

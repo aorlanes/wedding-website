@@ -145,7 +145,7 @@ const SlideCard = ({ info, onClick }: SlideCardProps) => {
           />
           <Typography variant="subtitle1">{info.name}</Typography>
           <Typography
-            variant="subtitle2"
+            variant="body1"
             style={{ fontFamily: 'La Belle Aurore, cursive' }}
           >
             {info.title}

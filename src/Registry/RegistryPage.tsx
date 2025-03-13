@@ -27,7 +27,7 @@ const RegistryPage = () => {
       >
         Registry
       </Typography>
-      <Typography variant="subtitle2">
+      <Typography variant="body1">
         Your presence at our wedding is the most meaningful gift we could ask
         for! However, if you’d like to give a little something extra, we’ve set
         up a honeymoon fund to help us create unforgettable memories on our
@@ -55,9 +55,7 @@ const RegistryPage = () => {
           );
         })}
       </div>
-      {modalOpen && (
-        <PaymentModal open={modalOpen} setModalOpen={setModalOpen} />
-      )}
+      <PaymentModal open={modalOpen} setModalOpen={setModalOpen} />
     </Container>
   );
 };

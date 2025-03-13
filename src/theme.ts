@@ -114,7 +114,7 @@ const theme = createTheme({
     },
     subtitle2: {
       fontWeight: 500,
-      fontSize: '1rem',
+      fontSize: '1.25rem',
       lineHeight: 1.57,
       letterSpacing: '0.00714em',
     },

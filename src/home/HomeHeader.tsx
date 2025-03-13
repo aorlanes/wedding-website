@@ -44,7 +44,7 @@ const HomeHeader = () => {
             Anjela & Enrique
           </Typography>
           <Typography
-            variant="subtitle2"
+            variant="body1"
             color={theme.palette.secondary.main}
             style={{ marginTop: 16 }}
           >
